@@ -51,7 +51,7 @@ Solutions to practice test - Backup and Restore Methods
     <summary>Take a snapshot of the ETCD database using the built-in snapshot functionality.</br>Store the backup file at location <b>/opt/snapshot-pre-boot.db</b></summary>
 
     ```
-    ETCDCTL_API=3 etcdctl snapshot save \
+    ETCDCTL_API=3 etcdctl snapshot save \  --endpoints=127.0.0.1:2379
       --cacert=/etc/kubernetes/pki/etcd/ca.crt \
       --cert=/etc/kubernetes/pki/etcd/server.crt \
       --key=/etc/kubernetes/pki/etcd/server.key \
