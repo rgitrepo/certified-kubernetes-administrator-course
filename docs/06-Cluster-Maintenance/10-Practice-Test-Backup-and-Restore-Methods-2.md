@@ -18,7 +18,14 @@ In this test, we practice both with _stacked_ and _external_ etcd clusters.
     <summary>How many clusters are defined in the kubeconfig on the student-node?</summary>
 
     ```bash
+    # get contexts and clusters in each context
     kubectl config get-contexts
+
+    # get names of clusters
+    kubectl config get-clusters
+
+    # view details of each cluster
+    kubectl config view
     ```
 
     > 2
