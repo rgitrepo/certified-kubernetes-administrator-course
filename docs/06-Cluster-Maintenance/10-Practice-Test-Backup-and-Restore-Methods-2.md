@@ -79,7 +79,7 @@ In this test, we practice both with _stacked_ and _external_ etcd clusters.
     > cluster2-controlplane using `ssh cluster2-controlplane` and then check in `/etc/kubernetes/manifests` directory whether there is a file for etcd.
     > We don't find any files, meaning, etcd static pods isn't configured. Most likely now we believe it must be external. But to ensure that is the
     > correct assumption we use `kubectl describe pod kube-apiserver-cluster2-controlplane -n kube-system` and find under kube-apiserver
-    > `--etcd-servers=https://192.160.244.3:2379`. This giving an external url for the server hence confirming it's an external etcd.
+    > `--etcd-servers=https://192.160.244.3:2379`. The external url for the server confirms it's an external etcd.
 
 
 
