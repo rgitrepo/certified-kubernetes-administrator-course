@@ -137,6 +137,13 @@ In this test, we practice both with _stacked_ and _external_ etcd clusters.
 
     > /var/lib/etcd-data
 
+     To verify the data directory for an external etcd service, you can either inspect the running process or check the system unit file. The quickest method is using `ps -ef | grep etcd` after SSH-ing into the etcd server. This command shows the currently running 
+     processes, including the `--data-dir` parameter used by etcd, making it ideal for a quick verification of the active state and runtime options. Alternatively, you can use `systemctl` to get a more comprehensive view. First, identify the service name with 
+     `systemctl list-unit-files | grep etcd`, then inspect the service configuration file using `systemctl cat etcd.service`. This approach not only shows the startup parameters but also provides the file paths and full configuration, which is useful if you plan to 
+     edit or troubleshoot further.
+
+      The `kubectl describe` command did not work in this scenario because `kubectl` is designed to manage resources within the Kubernetes cluster, such as pods, nodes, and services. In an **External ETCD topology**, etcd is not deployed as a pod managed by Kubernetes; it is a standalone service running outside the cluster, often managed by `systemd` on a separate node. Therefore, accessing details about its configuration or state requires directly SSH-ing into the etcd server and using operating system-level commands (`ps`, `systemctl`), as Kubernetes commands like `kubectl` do not have access to external resources outside of the cluster’s control.
+
     Return to the student node:
 
     ```bash
