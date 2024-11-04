@@ -95,31 +95,31 @@
         kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.contexts[?(@.context.user=='aws-user')].name}" > /opt/outputs/aws-context-name
         ```
 
-       The command `kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.contexts[?(@.context.user=='aws-user')].name}"` is used to filter and display the context names from a kubeconfig file (`my-kube-config`) where the user is set to `aws-user`. Let’s break down each part, focusing on the role of `@` in the `jsonpath` expression.
-
-### Command Breakdown
-
-1. **`kubectl config view`**: This command retrieves the current configuration from the specified kubeconfig file. By default, `kubectl config view` displays configurations such as clusters, contexts, and users.
-
-2. **`--kubeconfig=my-kube-config`**: Specifies the path to the kubeconfig file (`my-kube-config`) to use instead of the default kubeconfig file, usually located at `~/.kube/config`.
-
-3. **`-o jsonpath="{...}"`**: This flag formats the output using JSONPath syntax, which allows us to select specific fields from the JSON output of `kubectl config view`.
-
-4. **JSONPath Expression `"{.contexts[?(@.context.user=='aws-user')].name}"`**:
-   - **`.contexts`**: Refers to the list of contexts defined in the kubeconfig file.
-   - **`[?()]`**: This is a **filter expression**. Inside the brackets, it defines a condition that filters the items in `.contexts`.
-   - **`@`**: The `@` symbol in JSONPath represents the **current element** being evaluated. In this case, it refers to each individual context object within `.contexts`.
-   - **`@.context.user=='aws-user'`**: This condition checks whether the `user` field within each context’s `context` object is equal to `aws-user`.
-   - **`.name`**: If a context matches the condition (i.e., it has `aws-user` as the `user`), this part extracts the `name` field of that context.
-
-### Example Explanation of `@` Usage
-
-In the filter expression `[?(@.context.user=='aws-user')]`, `@` represents each item in the `.contexts` array. This syntax tells `kubectl` to:
-- Look at each context (i.e., each item in `.contexts`).
-- For each context, check if `@.context.user` equals `aws-user`.
-- If the condition is true, return the `.name` field for that context.
-
-This way, the command outputs only the names of contexts where the user is set to `aws-user`.
+        The command `kubectl config view --kubeconfig=my-kube-config -o jsonpath="{.contexts[?(@.context.user=='aws-user')].name}"` is used to filter and display the context names from a kubeconfig file (`my-kube-config`) where the user is set to `aws-user`. Let’s break down each part, focusing on the role of `@` in the `jsonpath` expression.
+        
+        ### Command Breakdown
+        
+        1. **`kubectl config view`**: This command retrieves the current configuration from the specified kubeconfig file. By default, `kubectl config view` displays configurations such as clusters, contexts, and users.
+        
+        2. **`--kubeconfig=my-kube-config`**: Specifies the path to the kubeconfig file (`my-kube-config`) to use instead of the default kubeconfig file, usually located at `~/.kube/config`.
+        
+        3. **`-o jsonpath="{...}"`**: This flag formats the output using JSONPath syntax, which allows us to select specific fields from the JSON output of `kubectl config view`.
+        
+        4. **JSONPath Expression `"{.contexts[?(@.context.user=='aws-user')].name}"`**:
+           - **`.contexts`**: Refers to the list of contexts defined in the kubeconfig file.
+           - **`[?()]`**: This is a **filter expression**. Inside the brackets, it defines a condition that filters the items in `.contexts`.
+           - **`@`**: The `@` symbol in JSONPath represents the **current element** being evaluated. In this case, it refers to each individual context object within `.contexts`.
+           - **`@.context.user=='aws-user'`**: This condition checks whether the `user` field within each context’s `context` object is equal to `aws-user`.
+           - **`.name`**: If a context matches the condition (i.e., it has `aws-user` as the `user`), this part extracts the `name` field of that context.
+        
+        ### Example Explanation of `@` Usage
+        
+        In the filter expression `[?(@.context.user=='aws-user')]`, `@` represents each item in the `.contexts` array. This syntax tells `kubectl` to:
+        - Look at each context (i.e., each item in `.contexts`).
+        - For each context, check if `@.context.user` equals `aws-user`.
+        - If the condition is true, return the `.name` field for that context.
+        
+        This way, the command outputs only the names of contexts where the user is set to `aws-user`.
 
        </details>
        
