@@ -107,7 +107,7 @@ Solutions to practice test - node affinity
                 - key: node-role.kubernetes.io/control-plane
                   operator: Exists
       ```
-      After pasting affinity: and lines below it they require shifting to the right. For that press "**Shift + .  **" to make items jump to right.
+      After pasting affinity: and lines below it they require shifting to the right. For that press "**Shift + .** " to make items jump to right.
       
     1. Save, exit and create the deployment
       ```
