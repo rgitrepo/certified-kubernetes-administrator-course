@@ -33,11 +33,21 @@ Solutions to practice test - managing application logs
   
   <details>
   
-    Since the pod has two containers (simple-webapp & db) the below command might work but might also require container name to be specified for log viewing
+    Since the pod has two containers (simple-webapp & db) the below command might work but might also require container name to be specified for log viewing.
+
+   Check the pod to find names of containers.
+  
+   ```
+   $ kubectl describe pod webapp-2
+   ```  
+
+
 
    ```
   $ kubectl logs webapp-2
   ```
+   
+  or
 
   ```
   $ kubectl logs webapp-2 simple-webapp
