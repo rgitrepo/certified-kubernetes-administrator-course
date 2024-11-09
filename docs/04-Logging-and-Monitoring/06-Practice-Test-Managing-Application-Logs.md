@@ -32,9 +32,12 @@ Solutions to practice test - managing application logs
 - Inspect the logs of the webapp in the POD
   
   <details>
-  
+  Since the pod has two containers (simple-webapp & db) the below command might work but might also require container name to be specified for log viewing
   ```
   $ kubectl logs webapp-2
+  ```
+  ```
+  $ kubectl logs webapp-2 simple-webapp
   ```
   </details>
 
