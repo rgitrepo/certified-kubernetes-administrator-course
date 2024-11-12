@@ -93,8 +93,8 @@ Solutions to practice test - init-containers
   $ kubectl logs orange
   ```
 
- The logs don't show much as pod orange is waiting to start, and waiting for intit containers to run first before starting. 
- To get better information we look into logs of init containers
+  The logs don't show much as pod orange is waiting to start, and waiting for intit containers to run first before starting. 
+  To get better information we look into logs of init containers
 
   ```
    k logs orange -c init-myservice
