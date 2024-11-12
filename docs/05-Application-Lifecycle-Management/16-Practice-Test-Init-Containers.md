@@ -79,6 +79,7 @@ Solutions to practice test - init-containers
 - Check the command used by the initContainer. Looks like there is a type in sleep command. Fix it, it should be **`sleep 2`** not **`sleeeep 2`**
   
   <details>
+    
   ```
   $ kubectl describe pod orange
   $ kubectl get pod orange -o yaml > orange.yaml
@@ -89,6 +90,7 @@ Solutions to practice test - init-containers
   ```
   
   ```
+  
   $ kubectl logs orange
   
   ```
