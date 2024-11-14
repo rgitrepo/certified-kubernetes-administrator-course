@@ -76,7 +76,6 @@ Solutions to practice test cluster upgrade process
   $ kubeadm upgrade apply v1.18.0
    
   $ apt install kubelet=1.18.0-00
-
   ```
   
   </details>
