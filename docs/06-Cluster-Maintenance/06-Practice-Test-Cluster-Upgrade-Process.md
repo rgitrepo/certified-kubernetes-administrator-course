@@ -69,13 +69,16 @@ Solutions to practice test cluster upgrade process
 - Run the command apt install kubeadm=1.18.0-00 and then kubeadm upgrade apply v1.18.0 and then apt install kubelet=1.18.0-00 to upgrade the kubelet on the master node
   
   <details>
+  
   ```
   $ apt install kubeadm=1.18.0-00
     
   $ kubeadm upgrade apply v1.18.0
    
   $ apt install kubelet=1.18.0-00
+
   ```
+  
   </details>
   
 - Run the command kubectl uncordon master
