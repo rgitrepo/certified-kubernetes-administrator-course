@@ -138,7 +138,9 @@ In this test, we practice both with _stacked_ and _external_ etcd clusters.
     > /var/lib/etcd-data
 
      To verify the data directory for an external etcd service, you can either inspect the running process or check the system unit file. The quickest method is using `ps -ef | grep etcd` after SSH-ing into the etcd server. This command shows the currently running 
-processes, including the `--data-dir` parameter used by etcd, making it ideal for a quick verification of the active state and runtime options. Alternatively, you can use `systemctl` to get a more comprehensive view. First, identify the service name with 
+processes, including the `--data-dir` parameter used by etcd, making it ideal for a quick verification of the active state and runtime options.
+
+    Alternatively, you can use `systemctl` to get a more comprehensive view. First, identify the service name with 
 `systemctl list-unit-files | grep etcd`, then inspect the service configuration file using `systemctl cat etcd.service`. This approach not only shows the startup parameters but also provides the file paths and full configuration, which is useful if you plan to 
 edit or troubleshoot further.
 
